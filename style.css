@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 /* SMOOTH SCROLL */
@@ -14,6 +14,8 @@ html {
 /* BODY */
 body {
   overflow-x: hidden;
+  background: #f7f3ee; /* soft off-white beige base */
+  color: #2b2b2b;
 }
 
 /* HERO SECTION */
@@ -28,10 +30,10 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
+  color: #ffffff;
 }
 
-/* DARK OVERLAY */
+/* SOFT WARM OVERLAY */
 .hero::before {
   content: "";
   position: absolute;
@@ -39,9 +41,10 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(40, 30, 20, 0.45);
 }
 
+/* HERO CONTENT */
 .content {
   position: relative;
   z-index: 1;
@@ -52,78 +55,105 @@ body {
 .content h1 {
   font-size: 60px;
   margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
 .content p {
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 25px;
+  color: #f5f0e6;
 }
 
-/* BUTTON */
+/* BUTTON (soft luxury feel) */
 .btn {
   display: inline-block;
-  padding: 12px 25px;
-  background: #ffb347;
-  color: black;
-  border-radius: 25px;
+  padding: 12px 26px;
+  background: #e6d5c3; /* soft beige */
+  color: #2b2b2b;
+  border-radius: 30px;
   text-decoration: none;
   font-size: 16px;
-  transition: 0.3s;
+  font-weight: 600;
+  transition: 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .btn:hover {
-  background: #ffa31a;
+  background: #d8c2ab;
+  transform: translateY(-2px);
 }
 
 /* SECTIONS */
 .section {
-  padding: 80px 20px;
+  padding: 90px 20px;
   text-align: center;
 }
 
 .section h2 {
-  font-size: 40px;
+  font-size: 42px;
   margin-bottom: 20px;
+  color: #2b2b2b;
+  letter-spacing: 0.5px;
 }
 
 .section p {
-  max-width: 700px;
+  max-width: 750px;
   margin: auto;
   font-size: 18px;
-  line-height: 1.6;
-  color: #444;
+  line-height: 1.7;
+  color: #5a5a5a;
 }
 
-/* DARK SECTION */
+/* DARK SECTION (soft charcoal instead of harsh black) */
 .dark {
-  background: #111;
-  color: white;
+  background: #2f2a25;
+  color: #f5f0e6;
 }
 
 .dark p {
-  color: #ccc;
+  color: #ddd2c6;
 }
 
-/* CARDS */
+/* CARDS WRAPPER */
 .cards {
-  color: black;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 30px;
-  gap: 15px;
+  margin-top: 35px;
+  gap: 18px;
 }
 
+/* SOFT PREMIUM CARDS */
 .card {
-  background: white;
-  padding: 20px 30px;
-  border-radius: 12px;
-  font-size: 18px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  background: #ffffff;
+  color: #2b2b2b;
+  padding: 22px 32px;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+  border: 1px solid #f0e7df;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE (important for mobile) */
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 40px;
+  }
+
+  .section h2 {
+    font-size: 32px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
 }
