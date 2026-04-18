@@ -20,21 +20,27 @@ body {
     position: relative;
 }
 
-/* Dark overlay */
+/* DARK OVERLAY */
 .hero::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(0, 0, 0, 0.5);
 }
 
-/* Content */
+/* HERO CONTENT */
 .hero-content {
     position: relative;
     max-width: 600px;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+.hero-content.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero h1 {
@@ -47,7 +53,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* Buttons */
+/* BUTTONS */
 .buttons {
     display: flex;
     gap: 15px;
@@ -71,7 +77,7 @@ body {
     color: #fff;
 }
 
-/* Hover effects */
+/* HOVER EFFECTS */
 .primary:hover {
     background-color: #b8966d;
 }
