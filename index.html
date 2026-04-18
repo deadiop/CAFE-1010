@@ -3,32 +3,320 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cafe 1010</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Cafe 1010 — Where Coffee Meets Culture</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
 
-  <!-- HERO SECTION -->
-  <div class="hero">
-    <div class="content">
-      <h1>Cafe 1010</h1>
-      <p>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-logo">Cafe 1010</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-meta">Jodhpur &nbsp;·&nbsp; 11am – 11pm</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Est. 2024 &nbsp;·&nbsp; Jodhpur, Rajasthan</div>
+      <h1>Where Coffee<br>Meets <em>Culture</em></h1>
+      <p class="hero-sub">
         A cozy, peaceful workspace with great coffee, calm vibes, dorms, private villas,
         and everything you need to relax or work productively.
       </p>
-      <a href="explore.html" class="btn">Explore Now</a>
+      <div class="hero-actions">
+        <a href="#menu" class="btn-gold">Explore Menu</a>
+        <a href="#contact" class="btn-ghost">Book an Event</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Happy Guests</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">30+</div>
+          <div class="stat-label">Menu Items</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Event Types</div>
+        </div>
+      </div>
     </div>
-  </div>
-
-
-  <!-- CONTACT SECTION -->
-  <section class="section">
-    <h2>Visit Us</h2>
-    <p>
-      Come experience peace, productivity, and comfort all in one place at Cafe 1010.
-    </p>
   </section>
 
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-wrap">
+      <div class="about-body">
+        <div class="section-eyebrow">Our Story</div>
+        <h2 class="section-title">Welcome to Cafe 1010</h2>
+        <div class="section-rule"></div>
+        <p>
+          Cafe 1010 is designed for creators, students, and travelers who want a balance
+          between productivity and relaxation. Work, stay, and unwind in a calm environment
+          surrounded by nature and comfort.
+        </p>
+        <p>
+          From ethically sourced beans to freshly prepared meals, every detail at Cafe 1010
+          is crafted with love. Whether you're here to focus, unwind, or connect — there's
+          a corner waiting for you.
+        </p>
+        <div class="feat-grid">
+          <div class="feat"><h4>Work Friendly</h4><p>High-speed Wi-Fi & cozy desks</p></div>
+          <div class="feat"><h4>Dorms & Villas</h4><p>Comfortable stays on-site</p></div>
+          <div class="feat"><h4>Fresh Food</h4><p>Full meals, snacks & desserts</p></div>
+          <div class="feat"><h4>Live Events</h4><p>Music, workshops & more</p></div>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">☕</div>
+        <h3>A Cozy Corner in Jodhpur</h3>
+        <p>Pal Road, Pal Gaon<br>open daily from 11:00 AM to 11:00 PM</p>
+        <div class="tag-row">
+          <span class="vtag">Specialty Coffee</span>
+          <span class="vtag">Workspace</span>
+          <span class="vtag">Stay & Relax</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="menu-section">
+    <div class="section-center">
+      <div class="section-eyebrow">What We Serve</div>
+      <h2 class="section-title">Our Menu</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="menu-tabs">
+      <button class="tab on" onclick="filterMenu(this,'all')">All</button>
+      <button class="tab" onclick="filterMenu(this,'coffee')">Coffee</button>
+      <button class="tab" onclick="filterMenu(this,'food')">Food</button>
+      <button class="tab" onclick="filterMenu(this,'dessert')">Desserts</button>
+    </div>
+    <div class="menu-grid" id="menuGrid">
+      <div class="mcard" data-cat="coffee">
+        <div class="mcard-icon">☕</div>
+        <div class="mcard-name">Signature Latte <span class="mpill">Popular</span></div>
+        <div class="mcard-desc">Creamy espresso with steamed milk & house-made vanilla syrup.</div>
+        <div class="mcard-price">₹180</div>
+      </div>
+      <div class="mcard" data-cat="coffee">
+        <div class="mcard-icon">🍵</div>
+        <div class="mcard-name">Matcha Sunrise</div>
+        <div class="mcard-desc">Premium ceremonial matcha with oat milk and a hint of honey.</div>
+        <div class="mcard-price">₹200</div>
+      </div>
+      <div class="mcard" data-cat="coffee">
+        <div class="mcard-icon">🧊</div>
+        <div class="mcard-name">Cold Brew <span class="mpill">New</span></div>
+        <div class="mcard-desc">Slow-steeped 18 hours for a smooth, bold, low-acid brew.</div>
+        <div class="mcard-price">₹160</div>
+      </div>
+      <div class="mcard" data-cat="food">
+        <div class="mcard-icon">🥑</div>
+        <div class="mcard-name">Avocado Toast</div>
+        <div class="mcard-desc">Sourdough with smashed avocado, cherry tomatoes & sea salt.</div>
+        <div class="mcard-price">₹280</div>
+      </div>
+      <div class="mcard" data-cat="food">
+        <div class="mcard-icon">🍱</div>
+        <div class="mcard-name">Cafe Bowl <span class="mpill">Popular</span></div>
+        <div class="mcard-desc">Rice, roasted veggies, hummus & tahini drizzle.</div>
+        <div class="mcard-price">₹320</div>
+      </div>
+      <div class="mcard" data-cat="food">
+        <div class="mcard-icon">🥪</div>
+        <div class="mcard-name">Grilled Sandwich</div>
+        <div class="mcard-desc">Toasted multigrain with seasonal fillings & chipotle spread.</div>
+        <div class="mcard-price">₹220</div>
+      </div>
+      <div class="mcard" data-cat="food">
+        <div class="mcard-icon">🍳</div>
+        <div class="mcard-name">Bistro Breakfast</div>
+        <div class="mcard-desc">Eggs, toast, roasted tomatoes & herbed butter. A morning classic.</div>
+        <div class="mcard-price">₹260</div>
+      </div>
+      <div class="mcard" data-cat="dessert">
+        <div class="mcard-icon">🍰</div>
+        <div class="mcard-name">Cheesecake Slice <span class="mpill">Chef's Pick</span></div>
+        <div class="mcard-desc">Classic NY-style cheesecake with a buttery biscuit base.</div>
+        <div class="mcard-price">₹200</div>
+      </div>
+      <div class="mcard" data-cat="dessert">
+        <div class="mcard-icon">🍫</div>
+        <div class="mcard-name">Choco Lava Cake</div>
+        <div class="mcard-desc">Warm chocolate cake with a molten center & vanilla ice cream.</div>
+        <div class="mcard-price">₹240</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACILITIES -->
+  <section class="facilities-section">
+    <div class="section-center">
+      <div class="section-eyebrow">What We Offer</div>
+      <h2 class="section-title">Our Facilities</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="fac-grid">
+      <div class="fac-card">
+        <div class="fac-icon">☕</div>
+        <h3>Café, Bistro & Savories</h3>
+        <p>From specialty brews to fresh bistro meals — fuel your day the right way.</p>
+      </div>
+      <div class="fac-card">
+        <div class="fac-icon">💻</div>
+        <h3>Workspaces</h3>
+        <p>Quiet desks, fast Wi-Fi, and a calm atmosphere — your office away from the office.</p>
+      </div>
+      <div class="fac-card">
+        <div class="fac-icon">🛏</div>
+        <h3>Stays</h3>
+        <p>Cozy dorms and private villas for a restful overnight experience.</p>
+      </div>
+      <div class="fac-card">
+        <div class="fac-icon">🎉</div>
+        <h3>Event Hosting & More</h3>
+        <p>Live music, workshops, private parties — we make every occasion memorable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="events-section">
+    <div class="section-center">
+      <div class="section-eyebrow">What's On</div>
+      <h2 class="section-title">Events at Cafe 1010</h2>
+      <div class="section-rule"></div>
+      <p class="section-desc">
+        From soulful evenings to skill-building workshops — there's always something happening at Cafe 1010.
+      </p>
+    </div>
+    <div class="ev-grid">
+      <div class="evcard">
+        <div class="evcard-icon">🎶</div>
+        <h3>Live Music & Open Mic</h3>
+        <p>Every Friday evening. A stage for local artists, poets, and storytellers. No ticket needed — just show up.</p>
+        <span class="ev-badge">Every Friday</span>
+      </div>
+      <div class="evcard">
+        <div class="evcard-icon">🎨</div>
+        <h3>Workshops & Classes</h3>
+        <p>Coffee brewing, art sessions, journaling, entrepreneurship talks. Grow your skills in a relaxed setting.</p>
+        <span class="ev-badge">Monthly</span>
+      </div>
+      <div class="evcard">
+        <div class="evcard-icon">🎉</div>
+        <h3>Private Parties & Bookings</h3>
+        <p>Birthdays, team retreats, intimate gatherings. Customizable setups & catering available on request.</p>
+        <span class="ev-badge">Book Anytime</span>
+      </div>
+    </div>
+    <div class="events-cta">
+      <a href="#contact" class="btn-gold">Inquire About Events</a>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="gallery-section">
+    <div class="section-center">
+      <div class="section-eyebrow">Our Space</div>
+      <h2 class="section-title">A Peek Inside</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="gal-grid">
+      <div class="gitem ga">☕</div>
+      <div class="gitem gb">🎶</div>
+      <div class="gitem gc">🌿</div>
+      <div class="gitem gd">📚</div>
+      <div class="gitem ge">🍰</div>
+      <div class="gitem gf">🎨</div>
+      <div class="gitem gg">💻</div>
+      <div class="gitem gh">🌅</div>
+    </div>
+    <p class="gal-note">Replace the emoji above with your real cafe photos using &lt;img&gt; tags.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="section-center">
+      <div class="section-eyebrow">Get in Touch</div>
+      <h2 class="section-title">Visit Us or Say Hello</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <div class="cblock">
+          <div class="clabel">Address</div>
+          <div class="cval">Plot No 6, Khasra No 98, Bhadu Market<br>Pal Road, Pal Gaon<br>Jodhpur – 342001, Rajasthan</div>
+        </div>
+        <div class="cblock">
+          <div class="clabel">Opening Hours</div>
+          <div class="chips">
+            <span class="chip">Mon – Fri: 11am – 11pm</span>
+            <span class="chip">Sat – Sun: 11am – 11pm</span>
+          </div>
+        </div>
+        <div class="cblock">
+          <div class="clabel">Phone</div>
+          <div class="cval">+91 XXXXX XXXXX</div>
+        </div>
+        <div class="cblock">
+          <div class="clabel">Email</div>
+          <div class="cval">hello@cafe1010.in</div>
+        </div>
+        <div class="cblock">
+          <div class="clabel">Find Us On</div>
+          <div class="chips">
+            <span class="chip">Instagram</span>
+            <span class="chip">Facebook</span>
+          </div>
+        </div>
+      </div>
+      <div class="cform">
+        <h3>Send us a message</h3>
+        <div class="fg">
+          <label>Your Name</label>
+          <input type="text" id="contactName" placeholder="e.g. Priya Sharma" />
+        </div>
+        <div class="fg">
+          <label>Email or Phone</label>
+          <input type="text" id="contactEmail" placeholder="e.g. priya@email.com" />
+        </div>
+        <div class="fg">
+          <label>Message</label>
+          <textarea id="contactMessage" placeholder="Event booking, feedback, or just say hi!"></textarea>
+        </div>
+        <button class="fsub" onclick="handleFormSubmit()">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-logo">Cafe 1010</div>
+    <div class="f-sub">A cozy, peaceful workspace — Jodhpur, Rajasthan</div>
+    <div class="f-links">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#events">Events</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="f-divider"></div>
+    <div class="f-copy">© 2026 Cafe 1010. All rights reserved.</div>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
