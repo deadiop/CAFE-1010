@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cafe 1010 | Live Admin Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- LOGIN SECURITY OVERLAY -->
+  <div class="login-overlay" id="login-overlay">
+    <div class="login-card">
+      <div class="login-brand">
+        <h1>CAFE <span class="gold-num">1010</span></h1>
+        <p class="login-subtitle">Admin Live Management Portal</p>
+      </div>
+      
+      <form id="login-form">
+        <div class="form-group">
+          <label for="admin-pin">Enter Security PIN</label>
+          <input type="password" id="admin-pin" class="form-control" placeholder="Enter Security PIN" maxlength="12" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn-magenta w-100">AUTHENTICATE & ENTER DASHBOARD</button>
+        <p class="login-hint">Enter your Security PIN to access the Admin Dashboard</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- MAIN DASHBOARD CONTENT -->
+  <div class="dashboard-wrapper" id="dashboard-wrapper">
+    
+    <!-- TOP NAVBAR -->
+    <header class="dash-header">
+      <div class="dash-container header-inner">
+        <div class="dash-brand">
+          <a href="index.html" class="dash-logo-link">
+            <span class="dash-logo-title">CAFE <span class="gold">1010</span></span>
+            <span class="dash-badge">ADMIN DASHBOARD</span>
+          </a>
+        </div>
+        
+        <div class="dash-header-actions">
+          <div class="live-status-pill">
+            <span class="pulse-dot"></span>
+            <span>Live Sync Connected</span>
+          </div>
+          <button class="btn btn-outline-light btn-sm" id="btn-change-pin">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-2-2l2 2m7 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg>
+            Change PIN
+          </button>
+          <a href="index.html" target="_blank" class="btn btn-outline-light btn-sm">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            View Live Site
+          </a>
+          <button class="btn btn-logout btn-sm" id="btn-logout">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN BODY CONTAINER -->
+    <main class="dash-container dash-main">
+      
+      <!-- STATS OVERVIEW -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon icon-blue">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-total-photos">0</span>
+            <span class="stat-label">Total Managed Photos</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon icon-magenta">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-gallery-photos">0</span>
+            <span class="stat-label">Main Gallery Slider Photos</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon icon-gold">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-zone-photos">0</span>
+            <span class="stat-label">Zone Lightbox Photos</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TWO COLUMN WORKSPACE -->
+      <div class="workspace-grid">
+        
+        <!-- COLUMN 1: UPLOAD NEW PHOTO FORM -->
+        <div class="upload-column">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h2>Add New Photo</h2>
+              <p>Upload a picture to instantly display it on your live website.</p>
+            </div>
+            
+            <form id="upload-photo-form">
+              <!-- Upload Mode Switcher -->
+              <div class="form-group">
+                <label>Photo Source Type</label>
+                <div class="segmented-control">
+                  <button type="button" class="segment-btn active" id="seg-file">Upload Image File</button>
+                  <button type="button" class="segment-btn" id="seg-url">Image URL</button>
+                </div>
+              </div>
+
+              <!-- File Input Field -->
+              <div class="form-group" id="group-file-input">
+                <label for="photo-file">Select Image File from Computer</label>
+                <div class="file-drop-zone" id="drop-zone">
+                  <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                  <p class="drop-title">Click or Drag & Drop Photo Here</p>
+                  <p class="drop-sub">JPG, PNG, WEBP formats supported</p>
+                  <input type="file" id="photo-file" accept="image/*" class="file-hidden-input">
+                </div>
+                <div class="file-selected-name" id="file-selected-name"></div>
+              </div>
+
+              <!-- URL Input Field (Hidden by default) -->
+              <div class="form-group d-none" id="group-url-input">
+                <label for="photo-url">Paste Image URL Link</label>
+                <input type="url" id="photo-url" class="form-control" placeholder="https://images.unsplash.com/... or image link">
+              </div>
+
+              <!-- Target Zone Placement -->
+              <div class="form-group">
+                <label for="photo-placement">Display Location / Zone</label>
+                <select id="photo-placement" class="form-control" required>
+                  <option value="hero">Homepage Top Hero Banner</option>
+                  <option value="gallery">Homepage Main Gallery Slider</option>
+                  <option value="rooftop">Maadi Roof Top</option>
+                  <option value="dorms">Bandi Street (Dorms)</option>
+                  <option value="restaurant">Main Restaurant</option>
+                  <option value="gazebo">Gajibo (Gazebo)</option>
+                  <option value="work">Work From Cafe</option>
+                  <option value="troposphere">Kalpana Chawla Troposphere</option>
+                </select>
+              </div>
+
+              <!-- Title / Caption -->
+              <div class="form-group">
+                <label for="photo-title">Photo Title / Caption</label>
+                <input type="text" id="photo-title" class="form-control" placeholder="E.g. Cozy Sunset Corner" required>
+              </div>
+
+              <!-- Description / Subtitle -->
+              <div class="form-group">
+                <label for="photo-desc">Short Description (Optional)</label>
+                <input type="text" id="photo-desc" class="form-control" placeholder="E.g. Warm ambient lighting during golden hour">
+              </div>
+
+              <!-- Live Card Preview & Crop Controller -->
+              <div class="form-group d-none" id="preview-box">
+                <div class="crop-header-wrap">
+                  <label>Exact Live Website Card Preview</label>
+                  <span class="preview-tag" id="preview-mode-tag">Zone Card Preview</span>
+                </div>
+                
+                <!-- Realistic Site Card Container Mockup -->
+                <div class="site-card-mockup" id="mockup-container">
+                  <div class="mockup-img-wrap">
+                    <img src="" id="img-preview" alt="Preview">
+                    <span class="mockup-badge" id="mockup-badge-text">Restaurant</span>
+                  </div>
+                  <div class="mockup-body">
+                    <h4 id="mockup-title">Cozy Sunset Corner</h4>
+                    <p id="mockup-desc">Warm ambient lighting during golden hour</p>
+                  </div>
+                </div>
+
+                <!-- Crop & Alignment Controls -->
+                <div class="crop-controls-card">
+                  <p class="crop-section-title">Image Crop & Focal Adjustment</p>
+
+                  <div class="crop-control-group">
+                    <label for="crop-position">Focal Crop Position</label>
+                    <select id="crop-position" class="form-control">
+                      <option value="center center">Center Focus (Default)</option>
+                      <option value="center top">Top Focus (Show Upper Area)</option>
+                      <option value="center bottom">Bottom Focus (Show Lower Area)</option>
+                      <option value="left center">Left Focus</option>
+                      <option value="right center">Right Focus</option>
+                    </select>
+                  </div>
+
+                  <div class="crop-control-group">
+                    <div class="slider-label-wrap">
+                      <label for="crop-zoom">Image Framing Zoom</label>
+                      <span id="zoom-val-display" class="zoom-val-badge">100%</span>
+                    </div>
+                    <input type="range" id="crop-zoom" min="100" max="180" value="100" class="range-slider">
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-magenta w-100" id="btn-publish-photo">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Publish Photo to Live Site Immediately
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- COLUMN 2: LIVE PHOTOS MANAGER GRID -->
+        <div class="manager-column">
+          <div class="panel-card">
+            <div class="panel-header manager-header">
+              <div>
+                <h2>Live Photo Manager</h2>
+                <p>View, filter, and remove photos currently published to the live site.</p>
+              </div>
+              <button class="btn btn-outline-dark btn-sm" id="btn-reset-photos" title="Reset to default photos">Reset to Default</button>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs" id="filter-tabs">
+              <button class="tab-btn active" data-filter="all">All Photos</button>
+              <button class="tab-btn" data-filter="hero">Hero Banner</button>
+              <button class="tab-btn" data-filter="gallery">Main Gallery</button>
+              <button class="tab-btn" data-filter="rooftop">Rooftop</button>
+              <button class="tab-btn" data-filter="dorms">Dorms</button>
+              <button class="tab-btn" data-filter="restaurant">Restaurant</button>
+              <button class="tab-btn" data-filter="gazebo">Gazebo</button>
+              <button class="tab-btn" data-filter="work">Work</button>
+              <button class="tab-btn" data-filter="troposphere">Troposphere</button>
+            </div>
+
+            <!-- Photos Grid -->
+            <div class="photos-grid" id="photos-grid">
+              <!-- Dynamically populated via JS -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state d-none" id="empty-state">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#aaa" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+              <p>No photos found for this section.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- CHANGE SECURITY PIN MODAL -->
+  <div class="login-overlay d-none" id="pin-modal-overlay">
+    <div class="login-card modal-card-box">
+      <button class="modal-close-btn" id="pin-modal-close" type="button" aria-label="Close Modal">&times;</button>
+      <div class="login-brand">
+        <h2>Change Security PIN</h2>
+        <p class="login-subtitle">Set a custom passcode for your Admin Dashboard</p>
+      </div>
+      
+      <form id="change-pin-form">
+        <div class="form-group">
+          <label for="current-pin">Current PIN</label>
+          <input type="password" id="current-pin" class="form-control" placeholder="Enter current PIN" required>
+        </div>
+        <div class="form-group">
+          <label for="new-pin">New PIN</label>
+          <input type="password" id="new-pin" class="form-control" placeholder="Enter new PIN (min 4 characters)" minlength="4" maxlength="12" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm-new-pin">Confirm New PIN</label>
+          <input type="password" id="confirm-new-pin" class="form-control" placeholder="Re-enter new PIN" minlength="4" maxlength="12" required>
+        </div>
+        <button type="submit" class="btn btn-magenta w-100">UPDATE SECURITY PIN</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="admin-toast-container" id="admin-toast-container"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
