@@ -45,40 +45,76 @@ document.addEventListener('DOMContentLoaded', () => {
   const SYNC_CHANNEL_NAME = 'cafe1010_live_sync';
   const syncChannel = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel(SYNC_CHANNEL_NAME) : null;
 
-  function loadLivePhotos() {
-    let photos = [];
+    const DEFAULT_PHOTOS_APP = [
+      { id: 'def-h1', placement: 'hero', title: 'Garden Courtyard Hero', desc: 'Jodhpur garden escape & signature signpost', src: 'assets/hero_bg.jpg', isCustom: false },
+      { id: 'def-g1', placement: 'gallery', title: 'Garden Pathway', desc: 'Cascading pink bougainvillea shade', src: 'assets/garden_bougainvillea.jpg', isCustom: false },
+      { id: 'def-g2', placement: 'gallery', title: 'Blue City Courtyard', desc: 'Brick-paved courtyard with blue arches', src: 'assets/courtyard_1.jpg', isCustom: false },
+      { id: 'def-g3', placement: 'gallery', title: 'The Signpost to Discovery', desc: 'Vintage direction sign to zones', src: 'assets/signpost.jpg', isCustom: false },
+      { id: 'def-g4', placement: 'gallery', title: 'Bougainvillea Canopy', desc: 'Pink blossoms against blue Jodhpur sky', src: 'assets/bougainvillea_close.jpg', isCustom: false },
+      { id: 'def-g5', placement: 'gallery', title: 'Sunset Golden Hour', desc: 'Soft sunbeams lighting courtyard seating', src: 'assets/courtyard_2.jpg', isCustom: false },
+      { id: 'def-g6', placement: 'gallery', title: 'Heritage Dining Room', desc: 'Atrium dining space with glass roof', src: 'assets/restaurant_3.jpg', isCustom: false },
+
+      { id: 'def-z1', placement: 'rooftop', title: 'Maadi Roof Top', desc: 'Stargazing and blue cityscape view', src: 'assets/rooftop.png', isCustom: false },
+      { id: 'def-z2', placement: 'dorms', title: 'Bandi Street Dorms', desc: 'Hostel dorm environment with local art', src: 'assets/dorms.png', isCustom: false },
+      { id: 'def-z3', placement: 'restaurant', title: 'Main Restaurant Interior', desc: 'Heritage dining space with fresh brews', src: 'assets/restaurant.png', isCustom: false },
+      { id: 'def-z4', placement: 'restaurant', title: 'Cozy Table Seating', desc: 'Warm ceiling lamps & wooden tables', src: 'assets/restaurant_1.jpg', isCustom: false },
+      { id: 'def-z5', placement: 'restaurant', title: 'Bamboo Ceiling Dining', desc: 'Traditional rustic bamboo architecture', src: 'assets/restaurant_2.jpg', isCustom: false },
+      { id: 'def-z6', placement: 'restaurant', title: 'Glass Roof Atrium', desc: 'Warm ambient globes and white brick walls', src: 'assets/restaurant_3.jpg', isCustom: false },
+      { id: 'def-z7', placement: 'restaurant', title: 'Garden View Dining Table', desc: 'Air-conditioned dining facing courtyard', src: 'assets/restaurant_4.jpg', isCustom: false },
+      { id: 'def-z8', placement: 'gazebo', title: 'Gajibo Bamboo Canopy View', desc: 'Geometric bamboo ceiling, warm lamps, & bougainvillea garden', src: 'assets/gazebo_1.jpg', isCustom: false },
+      { id: 'def-z8b', placement: 'gazebo', title: 'Gajibo Outdoor Table Seating', desc: 'Wooden table seating with pink bougainvillea backdrop', src: 'assets/gazebo_2.jpg', isCustom: false },
+      { id: 'def-z8c', placement: 'gazebo', title: 'Gajibo Roof Structure & Garden View', desc: 'Angled bamboo gazebo roof & garden vista', src: 'assets/gazebo_3.jpg', isCustom: false },
+      { id: 'def-z9', placement: 'work', title: 'Work From Cafe Spot', desc: 'High-speed internet & charging outlets', src: 'assets/hero.png', isCustom: false },
+      { id: 'def-z10', placement: 'troposphere', title: 'Troposphere Full Room View', desc: 'Snooker table & vibrant artwork wall', src: 'assets/troposphere_1.jpg', isCustom: false },
+      { id: 'def-z11', placement: 'troposphere', title: 'Snooker Table Close-Up', desc: 'Green felt, white cue ball, & rack focus', src: 'assets/troposphere_2.jpg', isCustom: false },
+      { id: 'def-z12', placement: 'troposphere', title: 'Cue Ball & Ball Rack Focus', desc: 'Arranged snooker balls & wall frames', src: 'assets/troposphere_3.jpg', isCustom: false },
+      { id: 'def-z13', placement: 'troposphere', title: 'Vibrant Wall Artwork Collage', desc: 'Color block wall & snooker arena', src: 'assets/troposphere_4.jpg', isCustom: false },
+      { id: 'def-z14', placement: 'troposphere', title: 'Snooker Room Overview', desc: 'Full-sized snooker table flight room', src: 'assets/snooker.png', isCustom: false }
+    ];
+
     try {
       const stored = localStorage.getItem(STORAGE_KEY_PHOTOS);
       if (stored) {
         photos = JSON.parse(stored);
         if (Array.isArray(photos) && photos.length > 0) {
-          const defaultMap = new Map([
-            ['def-h1', { src: 'assets/hero_bg.jpg', placement: 'hero' }],
-            ['def-g1', { src: 'assets/garden_bougainvillea.jpg', placement: 'gallery' }],
-            ['def-z4', { src: 'assets/restaurant_1.jpg', placement: 'restaurant' }],
-            ['def-z5', { src: 'assets/restaurant_2.jpg', placement: 'restaurant' }],
-            ['def-z6', { src: 'assets/restaurant_3.jpg', placement: 'restaurant' }],
-            ['def-z7', { src: 'assets/restaurant_4.jpg', placement: 'restaurant' }]
-          ]);
+          const defaultMap = new Map(DEFAULT_PHOTOS_APP.map(p => [p.id, p]));
+          let updated = false;
 
           // Clear any old custom hero items to ensure the new hero image displays
+          const beforeHeroClear = photos.length;
           photos = photos.filter(photo => !(photo.placement === 'hero' && photo.isCustom));
+          if (photos.length !== beforeHeroClear) updated = true;
 
           photos = photos.map(photo => {
-            if (photo.id === 'def-h1') {
-              return { ...photo, src: 'assets/hero_bg.jpg', placement: 'hero', title: 'Garden Courtyard Hero', isCustom: false };
-            }
-            if (!photo.isCustom && defaultMap.has(photo.id)) {
-              const defInfo = defaultMap.get(photo.id);
-              return { ...photo, src: defInfo.src, placement: defInfo.placement };
+            if (photo.id && defaultMap.has(photo.id)) {
+              const latestDef = defaultMap.get(photo.id);
+              if (photo.src !== latestDef.src || photo.placement !== latestDef.placement) {
+                updated = true;
+                return { ...photo, src: latestDef.src, placement: latestDef.placement, isCustom: false };
+              }
             }
             return photo;
           });
-          localStorage.setItem(STORAGE_KEY_PHOTOS, JSON.stringify(photos));
+
+          // Self-heal and insert any missing default photos
+          DEFAULT_PHOTOS_APP.forEach(defItem => {
+            if (!photos.some(p => p.id === defItem.id)) {
+              photos.push(defItem);
+              updated = true;
+            }
+          });
+
+          if (updated) {
+            localStorage.setItem(STORAGE_KEY_PHOTOS, JSON.stringify(photos));
+          }
         }
+      } else {
+        photos = DEFAULT_PHOTOS_APP;
+        localStorage.setItem(STORAGE_KEY_PHOTOS, JSON.stringify(photos));
       }
     } catch(e) {
       console.error('Error reading live photos store:', e);
+      photos = DEFAULT_PHOTOS_APP;
     }
 
     if (!photos || photos.length === 0) return;
