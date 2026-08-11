@@ -126,11 +126,13 @@
             return photo;
           });
 
-          // Ensure default hero photo exists if missing
-          if (!photos.some(p => p.id === 'def-h1')) {
-            photos.unshift(DEFAULT_PHOTOS[0]);
-            updated = true;
-          }
+          // Ensure all default photos exist if missing
+          DEFAULT_PHOTOS.forEach(defItem => {
+            if (!photos.some(p => p.id === defItem.id)) {
+              photos.push(defItem);
+              updated = true;
+            }
+          });
 
           if (updated) {
             localStorage.setItem(STORAGE_KEY_PHOTOS, JSON.stringify(photos));
