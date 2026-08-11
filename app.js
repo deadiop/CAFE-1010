@@ -769,7 +769,10 @@ document.addEventListener('DOMContentLoaded', () => {
       { src: 'assets/restaurant_4.jpg', alt: 'Garden View Dining Table' }
     ],
     gazebo: [
-      { src: 'assets/gazebo.png', alt: 'Garden Gazebo' }
+      { src: 'assets/gazebo_1.jpg', alt: 'Gajibo - Bamboo Canopy Ceiling & Bougainvillea Garden View' },
+      { src: 'assets/gazebo_2.jpg', alt: 'Gajibo Outdoor Wooden Table Seating' },
+      { src: 'assets/gazebo_3.jpg', alt: 'Gajibo Roof Structure & Garden View' },
+      { src: 'assets/gazebo.png', alt: 'Garden Gazebo Overview' }
     ],
     work: [
       { src: 'assets/hero.png', alt: 'Work from Cafe Spot' }
