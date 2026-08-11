@@ -837,20 +837,39 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
 
   function openGallery(zoneKey, zoneTitle) {
-    if (!zoneGalleries[zoneKey] || zoneGalleries[zoneKey].length === 0) return;
+    // Merge all default zone photos to guarantee complete gallery listing
+    const defaultZoneItems = DEFAULT_PHOTOS_APP.filter(p => p.placement === zoneKey).map(p => ({
+      src: p.src,
+      alt: p.title || p.desc || zoneKey
+    }));
+
+    if (!zoneGalleries[zoneKey] || zoneGalleries[zoneKey].length < defaultZoneItems.length) {
+      const existing = zoneGalleries[zoneKey] || [];
+      const uniqueDefaults = defaultZoneItems.filter(d => !existing.some(e => e.src === d.src));
+      zoneGalleries[zoneKey] = [...existing, ...uniqueDefaults];
+    }
     
     currentGallery = zoneGalleries[zoneKey];
     currentIndex = 0;
     
     galleryTitle.textContent = `${zoneTitle.toUpperCase()} GALLERY`;
     
+    // Toggle Next/Prev buttons visibility based on photo count
+    if (currentGallery.length > 1) {
+      if (lightboxPrevBtn) lightboxPrevBtn.style.display = 'flex';
+      if (lightboxNextBtn) lightboxNextBtn.style.display = 'flex';
+    } else {
+      if (lightboxPrevBtn) lightboxPrevBtn.style.display = 'none';
+      if (lightboxNextBtn) lightboxNextBtn.style.display = 'none';
+    }
+
     // Build thumbnails
     thumbContainer.innerHTML = '';
     currentGallery.forEach((photo, idx) => {
       const img = document.createElement('img');
       img.src = photo.src;
       img.alt = photo.alt;
-      img.className = 'lightbox-thumb';
+      img.className = `lightbox-thumb ${idx === 0 ? 'active' : ''}`;
       
       // Accessibility features for thumbnails
       img.setAttribute('tabindex', '0');
@@ -879,15 +898,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function setLightboxPhoto(idx) {
+    if (!currentGallery || currentGallery.length === 0) return;
+    if (idx < 0) idx = currentGallery.length - 1;
+    if (idx >= currentGallery.length) idx = 0;
+
     currentIndex = idx;
     
-    // Update main image with a smooth fade in
-    mainImg.style.opacity = 0;
-    setTimeout(() => {
-      mainImg.src = currentGallery[currentIndex].src;
-      mainImg.alt = currentGallery[currentIndex].alt;
-      mainImg.style.opacity = 1;
-    }, 150);
+    // Instant image update
+    mainImg.src = currentGallery[currentIndex].src;
+    mainImg.alt = currentGallery[currentIndex].alt;
+    mainImg.style.opacity = '1';
     
     // Update thumbnail active state
     const thumbs = thumbContainer.querySelectorAll('.lightbox-thumb');
