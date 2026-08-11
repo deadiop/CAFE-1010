@@ -775,7 +775,11 @@ document.addEventListener('DOMContentLoaded', () => {
       { src: 'assets/hero.png', alt: 'Work from Cafe Spot' }
     ],
     troposphere: [
-      { src: 'assets/snooker.png', alt: 'Snooker Table Arena' }
+      { src: 'assets/troposphere_1.jpg', alt: 'Kalpana Chawla Troposphere - Snooker Arena Full Room' },
+      { src: 'assets/troposphere_2.jpg', alt: 'Snooker Table & Cue Ball Shot' },
+      { src: 'assets/troposphere_3.jpg', alt: 'Close-up Snooker Ball Rack Focus' },
+      { src: 'assets/troposphere_4.jpg', alt: 'Vibrant Artwork & Snooker Table Angle' },
+      { src: 'assets/snooker.png', alt: 'Snooker Room Overview' }
     ]
   };
 

@@ -85,7 +85,11 @@
     { id: 'def-z7', placement: 'restaurant', title: 'Garden View Dining Table', desc: 'Air-conditioned dining facing courtyard', src: 'assets/restaurant_4.jpg', isCustom: false },
     { id: 'def-z8', placement: 'gazebo', title: 'Garden Gazebo', desc: 'Outdoor stone gazebo with bougainvillea', src: 'assets/gazebo.png', isCustom: false },
     { id: 'def-z9', placement: 'work', title: 'Work From Cafe Spot', desc: 'High-speed internet & charging outlets', src: 'assets/hero.png', isCustom: false },
-    { id: 'def-z10', placement: 'troposphere', title: 'Kalpana Chawla Troposphere', desc: 'Full-sized snooker table flight room', src: 'assets/snooker.png', isCustom: false }
+    { id: 'def-z10', placement: 'troposphere', title: 'Troposphere Full Room View', desc: 'Snooker table & vibrant artwork wall', src: 'assets/troposphere_1.jpg', isCustom: false },
+    { id: 'def-z11', placement: 'troposphere', title: 'Snooker Table Close-Up', desc: 'Green felt, white cue ball, & rack focus', src: 'assets/troposphere_2.jpg', isCustom: false },
+    { id: 'def-z12', placement: 'troposphere', title: 'Cue Ball & Ball Rack Focus', desc: 'Arranged snooker balls & wall frames', src: 'assets/troposphere_3.jpg', isCustom: false },
+    { id: 'def-z13', placement: 'troposphere', title: 'Vibrant Wall Artwork Collage', desc: 'Color block wall & snooker arena', src: 'assets/troposphere_4.jpg', isCustom: false },
+    { id: 'def-z14', placement: 'troposphere', title: 'Snooker Room Overview', desc: 'Full-sized snooker table flight room', src: 'assets/snooker.png', isCustom: false }
   ];
 
   function isValidImgSrc(src) {
