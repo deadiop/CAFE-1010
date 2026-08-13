@@ -969,6 +969,10 @@ h1, h2, h3, h4, h5, h6 {
 .zone-img-wrap img[src*="restaurant"] {
   object-position: center 65%;
 }
+.zone-img-wrap img[data-zone-cover="dorms"],
+.zone-img-wrap img[src*="dorms"] {
+  object-position: center 60%;
+}
 .zone-img-wrap img[data-zone-cover="work"],
 .zone-img-wrap img[src*="work"] {
   object-position: center 55%;
