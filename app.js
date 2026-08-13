@@ -421,15 +421,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 5. GALLERY FEAST SLIDER ---
   function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    indicators.forEach(ind => ind.classList.remove('active'));
+    const liveSlides = document.querySelectorAll('#gallery-track .slide');
+    const liveIndicators = document.querySelectorAll('#gallery-indicators .indicator');
 
-    currentSlide = (index + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-    indicators[currentSlide].classList.add('active');
+    if (!liveSlides || liveSlides.length === 0) return;
+
+    liveSlides.forEach(slide => slide.classList.remove('active'));
+    liveIndicators.forEach(ind => ind.classList.remove('active'));
+
+    currentSlide = (index + liveSlides.length) % liveSlides.length;
+    if (liveSlides[currentSlide]) liveSlides[currentSlide].classList.add('active');
+    if (liveIndicators[currentSlide]) liveIndicators[currentSlide].classList.add('active');
   }
 
   function startSliderAutoPlay() {
+    clearInterval(sliderInterval);
     sliderInterval = setInterval(() => {
       showSlide(currentSlide + 1);
     }, 5500);
@@ -440,23 +446,33 @@ document.addEventListener('DOMContentLoaded', () => {
     startSliderAutoPlay();
   }
 
-  prevBtn.addEventListener('click', () => {
-    showSlide(currentSlide - 1);
-    resetSliderTimer();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    showSlide(currentSlide + 1);
-    resetSliderTimer();
-  });
-
-  indicators.forEach(indicator => {
-    indicator.addEventListener('click', () => {
-      const targetIndex = parseInt(indicator.getAttribute('data-slide'));
-      showSlide(targetIndex);
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      showSlide(currentSlide - 1);
       resetSliderTimer();
     });
-  });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      showSlide(currentSlide + 1);
+      resetSliderTimer();
+    });
+  }
+
+  const galleryIndicatorsContainer = document.getElementById('gallery-indicators');
+  if (galleryIndicatorsContainer) {
+    galleryIndicatorsContainer.addEventListener('click', (e) => {
+      const ind = e.target.closest('.indicator');
+      if (ind) {
+        const targetIndex = parseInt(ind.getAttribute('data-slide'));
+        if (!isNaN(targetIndex)) {
+          showSlide(targetIndex);
+          resetSliderTimer();
+        }
+      }
+    });
+  }
 
   // Start slider auto run
   startSliderAutoPlay();
@@ -936,14 +952,19 @@ document.addEventListener('DOMContentLoaded', () => {
     setLightboxPhoto(prevIdx);
   }
 
-  // Event Listeners for Zone Gallery Buttons
-  document.querySelectorAll('.zone-view-gallery-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation(); // prevent triggering parent zone-card clicks
-      const zoneKey = btn.getAttribute('data-zone');
-      const titleEl = btn.closest('.zone-card').querySelector('h3, h4');
+  // Event Listeners for Zone/Facility Cards & Gallery Buttons
+  document.querySelectorAll('.zone-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Don't trigger gallery modal if user clicked the Reserve/Book button
+      if (e.target.closest('.btn-reserve')) return;
+
+      const galleryBtn = card.querySelector('.zone-view-gallery-btn');
+      const zoneKey = galleryBtn ? galleryBtn.getAttribute('data-zone') : null;
+      const titleEl = card.querySelector('h3, h4');
       const zoneTitle = titleEl ? titleEl.textContent : zoneKey;
-      openGallery(zoneKey, zoneTitle);
+      if (zoneKey) {
+        openGallery(zoneKey, zoneTitle || zoneKey);
+      }
     });
   });
 
