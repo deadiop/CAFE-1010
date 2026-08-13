@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       { id: 'def-z1', placement: 'rooftop', title: 'Maadi Roof Top', desc: 'Lush greenery, bougainvillea terrace, & outdoor seating', src: 'assets/rooftop_1.jpg', isCustom: false },
       { id: 'def-z2', placement: 'dorms', title: 'Bandi Street Dorms', desc: 'Hostel dorm environment with local art', src: 'assets/dorms.png', isCustom: false },
-      { id: 'def-z3', placement: 'restaurant', title: 'Main Restaurant Interior', desc: 'Heritage dining space with fresh brews', src: 'assets/restaurant.png', isCustom: false },
+      { id: 'def-z3', placement: 'restaurant', title: 'Main Restaurant Interior', desc: 'Warm booth seating, wooden dining table, & ambient spotlights', src: 'assets/restaurant_cover.jpg', isCustom: false },
       { id: 'def-z4', placement: 'restaurant', title: 'Cozy Table Seating', desc: 'Warm ceiling lamps & wooden tables', src: 'assets/restaurant_1.jpg', isCustom: false },
       { id: 'def-z5', placement: 'restaurant', title: 'Bamboo Ceiling Dining', desc: 'Traditional rustic bamboo architecture', src: 'assets/restaurant_2.jpg', isCustom: false },
       { id: 'def-z6', placement: 'restaurant', title: 'Glass Roof Atrium', desc: 'Warm ambient globes and white brick walls', src: 'assets/restaurant_3.jpg', isCustom: false },
@@ -798,7 +798,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { src: 'assets/dorms.png', alt: 'Bandi Street Dorms' }
     ],
     restaurant: [
-      { src: 'assets/restaurant.png', alt: 'Main Restaurant Interior' },
+      { src: 'assets/restaurant_cover.jpg', alt: 'Main Restaurant Interior - Cozy Booth Seating' },
       { src: 'assets/restaurant_1.jpg', alt: 'Cozy Table Seating & Ceiling Lamps' },
       { src: 'assets/restaurant_2.jpg', alt: 'Traditional Bamboo Ceiling Space' },
       { src: 'assets/restaurant_3.jpg', alt: 'Glass Ceiling Dining Archway' },
