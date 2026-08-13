@@ -45,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const SYNC_CHANNEL_NAME = 'cafe1010_live_sync';
   const syncChannel = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel(SYNC_CHANNEL_NAME) : null;
 
+  function loadLivePhotos() {
+    let photos = [];
+
     const DEFAULT_PHOTOS_APP = [
       { id: 'def-h1', placement: 'hero', title: 'Garden Courtyard Hero', desc: 'Jodhpur garden escape & signature signpost', src: 'assets/hero_bg.jpg', isCustom: false },
       { id: 'def-g1', placement: 'gallery', title: 'Garden Pathway', desc: 'Cascading pink bougainvillea shade', src: 'assets/garden_bougainvillea.jpg', isCustom: false },
