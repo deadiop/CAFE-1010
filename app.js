@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 'def-z8', placement: 'gazebo', title: 'Gajibo Bamboo Canopy View', desc: 'Geometric bamboo ceiling, warm lamps, & bougainvillea garden', src: 'assets/gazebo_1.jpg', isCustom: false },
     { id: 'def-z8b', placement: 'gazebo', title: 'Gajibo Outdoor Table Seating', desc: 'Wooden table seating with pink bougainvillea backdrop', src: 'assets/gazebo_2.jpg', isCustom: false },
     { id: 'def-z8c', placement: 'gazebo', title: 'Gajibo Roof Structure & Garden View', desc: 'Angled bamboo gazebo roof & garden vista', src: 'assets/gazebo_3.jpg', isCustom: false },
-    { id: 'def-z8d', placement: 'gazebo', title: 'Garden Gazebo Overview', desc: 'Outdoor gazebo seating surrounded by flora', src: 'assets/gazebo.png', isCustom: false },
 
     { id: 'def-z9', placement: 'work', title: 'Work From Cafe Co-working Desk', desc: 'Co-working counter desk, laptop setup & charging outlets', src: 'assets/work_1.jpg', isCustom: false },
     { id: 'def-z9b', placement: 'work', title: 'Garden Courtyard Co-working Spot', desc: 'Quiet courtyard seating with high-speed Wi-Fi', src: 'assets/hero_bg.jpg', isCustom: false },
@@ -840,8 +839,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gazebo: [
       { src: 'assets/gazebo_1.jpg', alt: 'Gajibo - Bamboo Canopy Ceiling & Bougainvillea Garden View' },
       { src: 'assets/gazebo_2.jpg', alt: 'Gajibo Outdoor Wooden Table Seating' },
-      { src: 'assets/gazebo_3.jpg', alt: 'Gajibo Roof Structure & Garden View' },
-      { src: 'assets/gazebo.png', alt: 'Garden Gazebo Overview' }
+      { src: 'assets/gazebo_3.jpg', alt: 'Gajibo Roof Structure & Garden View' }
     ],
     work: [
       { src: 'assets/work_1.jpg', alt: 'Work from Cafe Co-working Desk Counter' },
