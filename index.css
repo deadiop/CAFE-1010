@@ -955,14 +955,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .zone-img-wrap {
   position: relative;
-  height: 200px;
+  height: 225px;
   overflow: hidden;
 }
 .zone-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
   transition: var(--transition-smooth);
+}
+.zone-img-wrap img[data-zone-cover="restaurant"],
+.zone-img-wrap img[src*="restaurant"] {
+  object-position: center 65%;
+}
+.zone-img-wrap img[data-zone-cover="work"],
+.zone-img-wrap img[src*="work"] {
+  object-position: center 55%;
 }
 .zone-card:hover .zone-img-wrap img {
   transform: scale(1.05);
