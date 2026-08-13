@@ -86,7 +86,7 @@
     { id: 'def-z8', placement: 'gazebo', title: 'Gajibo Bamboo Canopy View', desc: 'Geometric bamboo ceiling, warm lamps, & bougainvillea garden', src: 'assets/gazebo_1.jpg', isCustom: false },
     { id: 'def-z8b', placement: 'gazebo', title: 'Gajibo Outdoor Table Seating', desc: 'Wooden table seating with pink bougainvillea backdrop', src: 'assets/gazebo_2.jpg', isCustom: false },
     { id: 'def-z8c', placement: 'gazebo', title: 'Gajibo Roof Structure & Garden View', desc: 'Angled bamboo gazebo roof & garden vista', src: 'assets/gazebo_3.jpg', isCustom: false },
-    { id: 'def-z9', placement: 'work', title: 'Work From Cafe Spot', desc: 'High-speed internet & charging outlets', src: 'assets/hero.png', isCustom: false },
+    { id: 'def-z9', placement: 'work', title: 'Work From Cafe Co-working Desk', desc: 'Co-working counter desk, laptop setup & charging outlets', src: 'assets/work_1.jpg', isCustom: false },
     { id: 'def-z10', placement: 'troposphere', title: 'Troposphere Snooker Table Focus', desc: 'Green felt, white cue ball, & ambient spotlight wall', src: 'assets/troposphere_cover.jpg', isCustom: false },
     { id: 'def-z11', placement: 'troposphere', title: 'Snooker Table Close-Up', desc: 'Green felt, white cue ball, & rack focus', src: 'assets/troposphere_2.jpg', isCustom: false },
     { id: 'def-z12', placement: 'troposphere', title: 'Cue Ball & Ball Rack Focus', desc: 'Arranged snooker balls & wall frames', src: 'assets/troposphere_3.jpg', isCustom: false },
