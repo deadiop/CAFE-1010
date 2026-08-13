@@ -76,18 +76,26 @@
     { id: 'def-g6', placement: 'gallery', title: 'Heritage Dining Room', desc: 'Atrium dining space with glass roof', src: 'assets/restaurant_3.jpg', isCustom: false },
 
     // Zones
-    { id: 'def-z1', placement: 'rooftop', title: 'Maadi Roof Top', desc: 'Lush greenery, bougainvillea terrace, & outdoor seating', src: 'assets/rooftop_1.jpg', isCustom: false },
+    { id: 'def-z1', placement: 'rooftop', title: 'Maadi Roof Top Terrace Garden View', desc: 'Lush greenery, bougainvillea terrace, & outdoor seating', src: 'assets/rooftop_1.jpg', isCustom: false },
+    { id: 'def-z1b', placement: 'rooftop', title: 'Maadi Roof Top & Sunset View', desc: 'Soft golden hour lighting on courtyard & rooftop', src: 'assets/courtyard_2.jpg', isCustom: false },
+    { id: 'def-z1c', placement: 'rooftop', title: 'Rooftop Skyline & Canopy View', desc: 'Blossom canopy against blue Jodhpur sky', src: 'assets/bougainvillea_close.jpg', isCustom: false },
+
     { id: 'def-z2', placement: 'dorms', title: 'Bandi Street Dorm Room Entrance View', desc: 'Full dorm room view showing bed, AC, coffee table & sofa chair', src: 'assets/dorms_1.jpg', isCustom: false },
     { id: 'def-z2b', placement: 'dorms', title: 'Bandi Street Dorm Room Window View', desc: 'Reverse angle showing dorm bed & window curtain', src: 'assets/dorms_2.jpg', isCustom: false },
+
     { id: 'def-z3', placement: 'restaurant', title: 'Main Restaurant Interior', desc: 'Warm booth seating, wooden dining table, & ambient spotlights', src: 'assets/restaurant_cover.jpg', isCustom: false },
     { id: 'def-z4', placement: 'restaurant', title: 'Cozy Table Seating', desc: 'Warm ceiling lamps & wooden tables', src: 'assets/restaurant_1.jpg', isCustom: false },
     { id: 'def-z5', placement: 'restaurant', title: 'Bamboo Ceiling Dining', desc: 'Traditional rustic bamboo architecture', src: 'assets/restaurant_2.jpg', isCustom: false },
     { id: 'def-z6', placement: 'restaurant', title: 'Glass Roof Atrium', desc: 'Warm ambient globes and white brick walls', src: 'assets/restaurant_3.jpg', isCustom: false },
     { id: 'def-z7', placement: 'restaurant', title: 'Garden View Dining Table', desc: 'Air-conditioned dining facing courtyard', src: 'assets/restaurant_4.jpg', isCustom: false },
+
     { id: 'def-z8', placement: 'gazebo', title: 'Gajibo Bamboo Canopy View', desc: 'Geometric bamboo ceiling, warm lamps, & bougainvillea garden', src: 'assets/gazebo_1.jpg', isCustom: false },
     { id: 'def-z8b', placement: 'gazebo', title: 'Gajibo Outdoor Table Seating', desc: 'Wooden table seating with pink bougainvillea backdrop', src: 'assets/gazebo_2.jpg', isCustom: false },
     { id: 'def-z8c', placement: 'gazebo', title: 'Gajibo Roof Structure & Garden View', desc: 'Angled bamboo gazebo roof & garden vista', src: 'assets/gazebo_3.jpg', isCustom: false },
+
     { id: 'def-z9', placement: 'work', title: 'Work From Cafe Co-working Desk', desc: 'Co-working counter desk, laptop setup & charging outlets', src: 'assets/work_1.jpg', isCustom: false },
+    { id: 'def-z9b', placement: 'work', title: 'Garden Courtyard Co-working Spot', desc: 'Quiet courtyard seating with high-speed Wi-Fi', src: 'assets/hero_bg.jpg', isCustom: false },
+    { id: 'def-z9c', placement: 'work', title: 'Outdoor Gazebo Work Spot', desc: 'Shaded bamboo gazebo workspace with power outlets', src: 'assets/gazebo_1.jpg', isCustom: false },
     { id: 'def-z10', placement: 'troposphere', title: 'Troposphere Snooker Table Focus', desc: 'Green felt, white cue ball, & ambient spotlight wall', src: 'assets/troposphere_cover.jpg', isCustom: false },
     { id: 'def-z11', placement: 'troposphere', title: 'Snooker Table Close-Up', desc: 'Green felt, white cue ball, & rack focus', src: 'assets/troposphere_2.jpg', isCustom: false },
     { id: 'def-z12', placement: 'troposphere', title: 'Cue Ball & Ball Rack Focus', desc: 'Arranged snooker balls & wall frames', src: 'assets/troposphere_3.jpg', isCustom: false },

@@ -45,36 +45,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const SYNC_CHANNEL_NAME = 'cafe1010_live_sync';
   const syncChannel = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel(SYNC_CHANNEL_NAME) : null;
 
+  const DEFAULT_PHOTOS_APP = [
+    { id: 'def-h1', placement: 'hero', title: 'Garden Courtyard Hero', desc: 'Jodhpur garden escape & signature signpost', src: 'assets/hero_bg.jpg', isCustom: false },
+    { id: 'def-g1', placement: 'gallery', title: 'Garden Pathway', desc: 'Cascading pink bougainvillea shade', src: 'assets/garden_bougainvillea.jpg', isCustom: false },
+    { id: 'def-g2', placement: 'gallery', title: 'Blue City Courtyard', desc: 'Brick-paved courtyard with blue arches', src: 'assets/courtyard_1.jpg', isCustom: false },
+    { id: 'def-g3', placement: 'gallery', title: 'The Signpost to Discovery', desc: 'Vintage direction sign to zones', src: 'assets/signpost.jpg', isCustom: false },
+    { id: 'def-g4', placement: 'gallery', title: 'Bougainvillea Canopy', desc: 'Pink blossoms against blue Jodhpur sky', src: 'assets/bougainvillea_close.jpg', isCustom: false },
+    { id: 'def-g5', placement: 'gallery', title: 'Sunset Golden Hour', desc: 'Soft sunbeams lighting courtyard seating', src: 'assets/courtyard_2.jpg', isCustom: false },
+    { id: 'def-g6', placement: 'gallery', title: 'Heritage Dining Room', desc: 'Atrium dining space with glass roof', src: 'assets/restaurant_3.jpg', isCustom: false },
+
+    { id: 'def-z1', placement: 'rooftop', title: 'Maadi Roof Top Terrace Garden View', desc: 'Lush greenery, bougainvillea terrace, & outdoor seating', src: 'assets/rooftop_1.jpg', isCustom: false },
+    { id: 'def-z1b', placement: 'rooftop', title: 'Maadi Roof Top & Sunset View', desc: 'Soft golden hour lighting on courtyard & rooftop', src: 'assets/courtyard_2.jpg', isCustom: false },
+    { id: 'def-z1c', placement: 'rooftop', title: 'Rooftop Skyline & Canopy View', desc: 'Blossom canopy against blue Jodhpur sky', src: 'assets/bougainvillea_close.jpg', isCustom: false },
+
+    { id: 'def-z2', placement: 'dorms', title: 'Bandi Street Dorm Room Entrance View', desc: 'Full dorm room view showing bed, AC, coffee table & sofa chair', src: 'assets/dorms_1.jpg', isCustom: false },
+    { id: 'def-z2b', placement: 'dorms', title: 'Bandi Street Dorm Room Window View', desc: 'Reverse angle showing dorm bed & window curtain', src: 'assets/dorms_2.jpg', isCustom: false },
+
+    { id: 'def-z3', placement: 'restaurant', title: 'Main Restaurant Interior', desc: 'Warm booth seating, wooden dining table, & ambient spotlights', src: 'assets/restaurant_cover.jpg', isCustom: false },
+    { id: 'def-z4', placement: 'restaurant', title: 'Cozy Table Seating', desc: 'Warm ceiling lamps & wooden tables', src: 'assets/restaurant_1.jpg', isCustom: false },
+    { id: 'def-z5', placement: 'restaurant', title: 'Bamboo Ceiling Dining', desc: 'Traditional rustic bamboo architecture', src: 'assets/restaurant_2.jpg', isCustom: false },
+    { id: 'def-z6', placement: 'restaurant', title: 'Glass Roof Atrium', desc: 'Warm ambient globes and white brick walls', src: 'assets/restaurant_3.jpg', isCustom: false },
+    { id: 'def-z7', placement: 'restaurant', title: 'Garden View Dining Table', desc: 'Air-conditioned dining facing courtyard', src: 'assets/restaurant_4.jpg', isCustom: false },
+
+    { id: 'def-z8', placement: 'gazebo', title: 'Gajibo Bamboo Canopy View', desc: 'Geometric bamboo ceiling, warm lamps, & bougainvillea garden', src: 'assets/gazebo_1.jpg', isCustom: false },
+    { id: 'def-z8b', placement: 'gazebo', title: 'Gajibo Outdoor Table Seating', desc: 'Wooden table seating with pink bougainvillea backdrop', src: 'assets/gazebo_2.jpg', isCustom: false },
+    { id: 'def-z8c', placement: 'gazebo', title: 'Gajibo Roof Structure & Garden View', desc: 'Angled bamboo gazebo roof & garden vista', src: 'assets/gazebo_3.jpg', isCustom: false },
+    { id: 'def-z8d', placement: 'gazebo', title: 'Garden Gazebo Overview', desc: 'Outdoor gazebo seating surrounded by flora', src: 'assets/gazebo.png', isCustom: false },
+
+    { id: 'def-z9', placement: 'work', title: 'Work From Cafe Co-working Desk', desc: 'Co-working counter desk, laptop setup & charging outlets', src: 'assets/work_1.jpg', isCustom: false },
+    { id: 'def-z9b', placement: 'work', title: 'Garden Courtyard Co-working Spot', desc: 'Quiet courtyard seating with high-speed Wi-Fi', src: 'assets/hero_bg.jpg', isCustom: false },
+    { id: 'def-z9c', placement: 'work', title: 'Outdoor Gazebo Work Spot', desc: 'Shaded bamboo gazebo workspace with power outlets', src: 'assets/gazebo_1.jpg', isCustom: false },
+
+    { id: 'def-z10', placement: 'troposphere', title: 'Troposphere Snooker Table Focus', desc: 'Green felt, white cue ball, & ambient spotlight wall', src: 'assets/troposphere_cover.jpg', isCustom: false },
+    { id: 'def-z11', placement: 'troposphere', title: 'Snooker Table Close-Up', desc: 'Green felt, white cue ball, & rack focus', src: 'assets/troposphere_2.jpg', isCustom: false },
+    { id: 'def-z12', placement: 'troposphere', title: 'Cue Ball & Ball Rack Focus', desc: 'Arranged snooker balls & wall frames', src: 'assets/troposphere_3.jpg', isCustom: false },
+    { id: 'def-z13', placement: 'troposphere', title: 'Vibrant Wall Artwork Collage', desc: 'Color block wall & snooker arena', src: 'assets/troposphere_4.jpg', isCustom: false },
+    { id: 'def-z14', placement: 'troposphere', title: 'Snooker Room Overview', desc: 'Full-sized snooker table flight room', src: 'assets/snooker.png', isCustom: false }
+  ];
+
   function loadLivePhotos() {
     let photos = [];
-
-    const DEFAULT_PHOTOS_APP = [
-      { id: 'def-h1', placement: 'hero', title: 'Garden Courtyard Hero', desc: 'Jodhpur garden escape & signature signpost', src: 'assets/hero_bg.jpg', isCustom: false },
-      { id: 'def-g1', placement: 'gallery', title: 'Garden Pathway', desc: 'Cascading pink bougainvillea shade', src: 'assets/garden_bougainvillea.jpg', isCustom: false },
-      { id: 'def-g2', placement: 'gallery', title: 'Blue City Courtyard', desc: 'Brick-paved courtyard with blue arches', src: 'assets/courtyard_1.jpg', isCustom: false },
-      { id: 'def-g3', placement: 'gallery', title: 'The Signpost to Discovery', desc: 'Vintage direction sign to zones', src: 'assets/signpost.jpg', isCustom: false },
-      { id: 'def-g4', placement: 'gallery', title: 'Bougainvillea Canopy', desc: 'Pink blossoms against blue Jodhpur sky', src: 'assets/bougainvillea_close.jpg', isCustom: false },
-      { id: 'def-g5', placement: 'gallery', title: 'Sunset Golden Hour', desc: 'Soft sunbeams lighting courtyard seating', src: 'assets/courtyard_2.jpg', isCustom: false },
-      { id: 'def-g6', placement: 'gallery', title: 'Heritage Dining Room', desc: 'Atrium dining space with glass roof', src: 'assets/restaurant_3.jpg', isCustom: false },
-
-      { id: 'def-z1', placement: 'rooftop', title: 'Maadi Roof Top', desc: 'Lush greenery, bougainvillea terrace, & outdoor seating', src: 'assets/rooftop_1.jpg', isCustom: false },
-      { id: 'def-z2', placement: 'dorms', title: 'Bandi Street Dorm Room Entrance View', desc: 'Full dorm room view showing bed, AC, coffee table & sofa chair', src: 'assets/dorms_1.jpg', isCustom: false },
-      { id: 'def-z2b', placement: 'dorms', title: 'Bandi Street Dorm Room Window View', desc: 'Reverse angle showing dorm bed & window curtain', src: 'assets/dorms_2.jpg', isCustom: false },
-      { id: 'def-z3', placement: 'restaurant', title: 'Main Restaurant Interior', desc: 'Warm booth seating, wooden dining table, & ambient spotlights', src: 'assets/restaurant_cover.jpg', isCustom: false },
-      { id: 'def-z4', placement: 'restaurant', title: 'Cozy Table Seating', desc: 'Warm ceiling lamps & wooden tables', src: 'assets/restaurant_1.jpg', isCustom: false },
-      { id: 'def-z5', placement: 'restaurant', title: 'Bamboo Ceiling Dining', desc: 'Traditional rustic bamboo architecture', src: 'assets/restaurant_2.jpg', isCustom: false },
-      { id: 'def-z6', placement: 'restaurant', title: 'Glass Roof Atrium', desc: 'Warm ambient globes and white brick walls', src: 'assets/restaurant_3.jpg', isCustom: false },
-      { id: 'def-z7', placement: 'restaurant', title: 'Garden View Dining Table', desc: 'Air-conditioned dining facing courtyard', src: 'assets/restaurant_4.jpg', isCustom: false },
-      { id: 'def-z8', placement: 'gazebo', title: 'Gajibo Bamboo Canopy View', desc: 'Geometric bamboo ceiling, warm lamps, & bougainvillea garden', src: 'assets/gazebo_1.jpg', isCustom: false },
-      { id: 'def-z8b', placement: 'gazebo', title: 'Gajibo Outdoor Table Seating', desc: 'Wooden table seating with pink bougainvillea backdrop', src: 'assets/gazebo_2.jpg', isCustom: false },
-      { id: 'def-z8c', placement: 'gazebo', title: 'Gajibo Roof Structure & Garden View', desc: 'Angled bamboo gazebo roof & garden vista', src: 'assets/gazebo_3.jpg', isCustom: false },
-      { id: 'def-z9', placement: 'work', title: 'Work From Cafe Co-working Desk', desc: 'Co-working counter desk, laptop setup & charging outlets', src: 'assets/work_1.jpg', isCustom: false },
-      { id: 'def-z10', placement: 'troposphere', title: 'Troposphere Snooker Table Focus', desc: 'Green felt, white cue ball, & ambient spotlight wall', src: 'assets/troposphere_cover.jpg', isCustom: false },
-      { id: 'def-z11', placement: 'troposphere', title: 'Snooker Table Close-Up', desc: 'Green felt, white cue ball, & rack focus', src: 'assets/troposphere_2.jpg', isCustom: false },
-      { id: 'def-z12', placement: 'troposphere', title: 'Cue Ball & Ball Rack Focus', desc: 'Arranged snooker balls & wall frames', src: 'assets/troposphere_3.jpg', isCustom: false },
-      { id: 'def-z13', placement: 'troposphere', title: 'Vibrant Wall Artwork Collage', desc: 'Color block wall & snooker arena', src: 'assets/troposphere_4.jpg', isCustom: false },
-      { id: 'def-z14', placement: 'troposphere', title: 'Snooker Room Overview', desc: 'Full-sized snooker table flight room', src: 'assets/snooker.png', isCustom: false }
-    ];
 
     try {
       const stored = localStorage.getItem(STORAGE_KEY_PHOTOS);
@@ -812,7 +822,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- ZONE GALLERY LIGHTBOX ---
   const zoneGalleries = {
     rooftop: [
-      { src: 'assets/rooftop_1.jpg', alt: 'Maadi Roof Top Terrace Garden View' }
+      { src: 'assets/rooftop_1.jpg', alt: 'Maadi Roof Top Terrace Garden View' },
+      { src: 'assets/courtyard_2.jpg', alt: 'Maadi Roof Top & Sunset View' },
+      { src: 'assets/bougainvillea_close.jpg', alt: 'Rooftop Skyline & Canopy View' }
     ],
     dorms: [
       { src: 'assets/dorms_1.jpg', alt: 'Bandi Street Dorm Room Full Entrance View' },
@@ -832,7 +844,9 @@ document.addEventListener('DOMContentLoaded', () => {
       { src: 'assets/gazebo.png', alt: 'Garden Gazebo Overview' }
     ],
     work: [
-      { src: 'assets/work_1.jpg', alt: 'Work from Cafe Co-working Desk Counter' }
+      { src: 'assets/work_1.jpg', alt: 'Work from Cafe Co-working Desk Counter' },
+      { src: 'assets/hero_bg.jpg', alt: 'Garden Courtyard Co-working Spot' },
+      { src: 'assets/gazebo_1.jpg', alt: 'Outdoor Gazebo Work Spot' }
     ],
     troposphere: [
       { src: 'assets/troposphere_cover.jpg', alt: 'Kalpana Chawla Troposphere - Snooker Arena Front View' },
