@@ -76,7 +76,7 @@
     { id: 'def-g6', placement: 'gallery', title: 'Heritage Dining Room', desc: 'Atrium dining space with glass roof', src: 'assets/restaurant_3.jpg', isCustom: false },
 
     // Zones
-    { id: 'def-z1', placement: 'rooftop', title: 'Maadi Roof Top', desc: 'Stargazing and blue cityscape view', src: 'assets/rooftop.png', isCustom: false },
+    { id: 'def-z1', placement: 'rooftop', title: 'Maadi Roof Top', desc: 'Lush greenery, bougainvillea terrace, & outdoor seating', src: 'assets/rooftop_1.jpg', isCustom: false },
     { id: 'def-z2', placement: 'dorms', title: 'Bandi Street Dorms', desc: 'Hostel dorm environment with local art', src: 'assets/dorms.png', isCustom: false },
     { id: 'def-z3', placement: 'restaurant', title: 'Main Restaurant Interior', desc: 'Heritage dining space with fresh brews', src: 'assets/restaurant.png', isCustom: false },
     { id: 'def-z4', placement: 'restaurant', title: 'Cozy Table Seating', desc: 'Warm ceiling lamps & wooden tables', src: 'assets/restaurant_1.jpg', isCustom: false },
