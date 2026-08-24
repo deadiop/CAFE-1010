@@ -1244,8 +1244,19 @@ input[type="date"].form-control {
   font-size: 2rem;
   letter-spacing: 2px;
   margin-bottom: 2px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
 }
-.gold-num { color: var(--brand-gold); }
+.gold-num {
+  color: var(--brand-gold);
+  font-size: 1.15em;
+  font-weight: 700;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+  display: inline-block;
+  vertical-align: baseline;
+}
 .footer-tag {
   font-size: 0.72rem;
   font-weight: 700;

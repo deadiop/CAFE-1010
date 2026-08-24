@@ -104,9 +104,20 @@ button, input, select {
   font-size: 2.4rem;
   color: var(--brand-burgundy);
   letter-spacing: 2px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
 }
-.login-brand .gold-num {
+.login-brand .gold-num,
+.dash-logo-title .gold {
   color: var(--brand-gold);
+  font-size: 1.15em;
+  font-weight: 700;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+  display: inline-block;
+  vertical-align: baseline;
 }
 .login-subtitle {
   font-size: 0.85rem;
