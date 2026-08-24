@@ -1244,9 +1244,7 @@ input[type="date"].form-control {
   font-size: 2rem;
   letter-spacing: 2px;
   margin-bottom: 2px;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
+  line-height: 1.2;
 }
 .gold-num {
   color: var(--brand-gold);
@@ -1255,7 +1253,21 @@ input[type="date"].form-control {
   font-variant-numeric: lining-nums;
   font-feature-settings: "lnum" 1;
   display: inline-block;
-  vertical-align: baseline;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+.brand-tm,
+.footer-logo sup {
+  font-size: 0.38em !important;
+  vertical-align: top !important;
+  position: relative !important;
+  top: -0.15em !important;
+  margin-left: 2px !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  letter-spacing: normal !important;
+  display: inline-block !important;
+  line-height: 1 !important;
 }
 .footer-tag {
   font-size: 0.72rem;
