@@ -118,7 +118,7 @@ button, input, select {
   font-size: 0.35em !important;
   font-family: var(--font-sans) !important;
   font-weight: 700 !important;
-  color: var(--brand-gold) !important;
+  color: #ffffff !important;
   position: relative !important;
   top: -1.05em !important;
   line-height: 0 !important;
