@@ -109,25 +109,17 @@ button, input, select {
 .login-brand .gold-num,
 .dash-logo-title .gold {
   color: var(--brand-gold);
-  font-size: 1.15em;
   font-weight: 700;
   font-variant-numeric: lining-nums;
   font-feature-settings: "lnum" 1;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 2px;
 }
 .login-brand sup,
 .dash-logo-title sup {
-  font-size: 0.38em !important;
-  vertical-align: top !important;
-  position: relative !important;
-  top: -0.15em !important;
-  margin-left: 2px !important;
-  font-family: var(--font-sans) !important;
-  font-weight: 700 !important;
-  display: inline-block !important;
-  line-height: 1 !important;
+  font-size: 0.38em;
+  vertical-align: super;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  margin-left: 2px;
 }
 .login-subtitle {
   font-size: 0.85rem;

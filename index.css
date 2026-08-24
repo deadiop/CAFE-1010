@@ -1248,26 +1248,18 @@ input[type="date"].form-control {
 }
 .gold-num {
   color: var(--brand-gold);
-  font-size: 1.15em;
   font-weight: 700;
   font-variant-numeric: lining-nums;
   font-feature-settings: "lnum" 1;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 2px;
 }
 .brand-tm,
 .footer-logo sup {
-  font-size: 0.38em !important;
-  vertical-align: top !important;
-  position: relative !important;
-  top: -0.15em !important;
-  margin-left: 2px !important;
-  font-family: var(--font-sans) !important;
-  font-weight: 700 !important;
-  letter-spacing: normal !important;
-  display: inline-block !important;
-  line-height: 1 !important;
+  font-size: 0.38em;
+  vertical-align: super;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: normal;
+  margin-left: 2px;
 }
 .footer-tag {
   font-size: 0.72rem;
