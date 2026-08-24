@@ -1254,12 +1254,16 @@ input[type="date"].form-control {
 }
 .brand-tm,
 .footer-logo sup {
-  font-size: 0.38em;
-  vertical-align: super;
-  font-family: var(--font-sans);
-  font-weight: 700;
-  letter-spacing: normal;
-  margin-left: 2px;
+  font-size: 0.35em !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  color: var(--brand-gold) !important;
+  position: relative !important;
+  top: -1.05em !important;
+  line-height: 0 !important;
+  vertical-align: baseline !important;
+  margin-left: 3px !important;
+  letter-spacing: normal !important;
 }
 .footer-tag {
   font-size: 0.72rem;
